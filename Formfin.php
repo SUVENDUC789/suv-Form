@@ -16,7 +16,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     {
         $choice=$_POST['choice'.$i.''];
         $ans=$_POST['ans'.$i.''];
-        if($choice==$ans)
+        if(password_verify($choice,$ans))
         {
             $total++;
         }
