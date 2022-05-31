@@ -18,7 +18,7 @@
         <hr>
         <form action="Formfin.php" method="post">
 
-        <?php 
+    <?php 
         
         include 'dbconnect.php';
 
@@ -47,6 +47,7 @@
             {
                 $row=mysqli_fetch_assoc($result);
     
+                $hash=password_hash($row['orans'],PASSWORD_DEFAULT);
                 if($row['type']=='tf')
                 {
     
@@ -58,7 +59,7 @@
                     <input type="hidden" name="choice'.($i+1).'" value="None">
                     <input type="radio" name="choice'.($i+1).'" id="radio" value="'.$row['op1'].'"> '.$row['op1'].'<br>
                     <input type="radio" name="choice'.($i+1).'" id="radio" value="'.$row['op2'].'"> '.$row['op2'].'<br>
-                    <input type="hidden" name="ans'.($i+1).'" value="'.$row['orans'].'">
+                    <input type="hidden" name="ans'.($i+1).'" value="'.$hash.'">
                     </div>
                     <hr>
                     
@@ -77,7 +78,7 @@
                     <input type="radio" name="choice'.($i+1).'" id="radio" value="'.$row['op2'].'"> '.$row['op2'].'<br>
                     <input type="radio" name="choice'.($i+1).'" id="radio" value="'.$row['op3'].'"> '.$row['op3'].'<br>
                     <input type="radio" name="choice'.($i+1).'" id="radio" value="'.$row['op4'].'"> '.$row['op4'].'<br>
-                    <input type="hidden" name="ans'.($i+1).'" value="'.$row['orans'].'">
+                    <input type="hidden" name="ans'.($i+1).'" value="'.$hash.'">
                     </div>
                     <hr>
                     
@@ -98,7 +99,7 @@
                     <input type="radio" name="choice'.($i+1).'" id="radio" value="'.$row['op2'].'"> '.$row['op2'].'<br>
                     <input type="radio" name="choice'.($i+1).'" id="radio" value="'.$row['op3'].'"> '.$row['op3'].'<br>
                     <input type="radio" name="choice'.($i+1).'" id="radio" value="'.$row['op4'].'"> '.$row['op4'].'<br>
-                    <input type="hidden" name="ans'.($i+1).'" value="'.$row['orans'].'">
+                    <input type="hidden" name="ans'.($i+1).'" value="'.$hash.'">
                     </div>
                     <hr>
                     
